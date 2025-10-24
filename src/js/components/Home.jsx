@@ -1,26 +1,21 @@
-import React from "react";
-
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+import React, {useState} from "react";
+import { act } from "react";
 
 //create your first component
 const Home = () => {
+	const [activeIcon, setActiveIcon] = useState("fav");
 	return (
 		<div className="text-center">
-            
-
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+			{/* on line if/else statements */}
+			{/* condition ? true : false */}
+            <i 
+				className={activeIcon == "fav" ?  "fa-solid fa-heart" : "fa-regular fa-heart"}
+				onClick={()=>setActiveIcon("fav")}
+			></i>
+			<i 	
+				className={activeIcon == "like" ?  "fa-solid fa-thumbs-up" : "fa-regular fa-thumbs-up"}
+				onClick={()=>setActiveIcon("like")}
+			></i>
 		</div>
 	);
 };
